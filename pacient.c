@@ -16,9 +16,9 @@ struct paciente
 
 struct pacientes
 {   
-    int n;// quanditdade de meliantes 
+    int n;// quantidade de meliantes 
     int n_max;// capacidade total de meliantes
-    Pacients **meliants;//vetor de meliantes
+    Pacients **meliants_vector;//vetor de meliantes
 };
 
 
@@ -51,15 +51,15 @@ void gen_name(Pacient *pacient)
     pacient->cpf[50] = "\0";
 }
 
-Pacients *v_meliants()
+Pacients *create_meliants()
 {
-   Pacients * v_meliants= (Pacients *)malloc(sizeof(Pacients)); // Allocate memory for the DynVec structure
+   Pacients * meliants= (Pacients *)malloc(sizeof(Pacients)); // Allocate memory for the DynVec structure
 
-   v_meliants->n = 0;                                          // Initialize the number of elements to 0
-   v_meliants->n_max = 4;                                      // Allocate initially space for 4 elements
-   Pacient**meliants = (Pacients **)malloc(v_meliants->n_max * sizeof(Pacients)); // Allocate memory for the vector data
+   meliants->n = 0;                                          // Initialize the number of elements to 0
+   meliants->n_max = 4;                                      // Allocate initially space for 4 elements
+   meliants->meliants_vector = (Pacient **)malloc(meliants->n_max * sizeof(Pacient)); // Allocate memory for the vector data
 
-   return v_meliants; // Return a pointer to the created dynamic vector
+   return meliants; // Return a pointer to the created dynamic vector
 }
 
 Pacient *create_meliant(int t_in)
@@ -75,19 +75,13 @@ Pacient *create_meliant(int t_in)
     return pacient;
 };
 
-static void reallocate(Pacients *v_meliants)
-{
-   v_meliants->n_max *= 2;                                             // Double the capacity
-   v_meliants->meliants = (float *)realloc(v_meliants->meliants, v_meliants->n_max * sizeof(float)); // Reallocate memory for the vector data
-}
 
-
-void meliant_insert(Pacients *v_meliants, Pacient *pacient)
+void meliant_insert(Pacients *meliants, Pacient *pacient)
 {
    // Check if the capacity is enough, and if not, reallocate memory
-   if (v_meliants->n == v_meliants->n_max)
-      reallocate(v_meliants);
+   if (meliants->n == meliants->n_max)
+      reallocate(meliants);
 
-   v_meliants->meliants[v_meliants->n++] = pacient; // Insert the value and increment the size
+   meliants->meliants_vector[meliants->n++] = pacient; // Insert the value and increment the size
 }
 
