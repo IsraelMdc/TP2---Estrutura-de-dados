@@ -74,7 +74,8 @@ Pacient *create_meliant(int t_in)
     pacient->t_out = 0;
     return pacient;
 };
-
+//meliants == struct de pacients
+//meliants_vector = lista de meliantes
 
 void meliant_insert(Pacients *meliants, Pacient *pacient)
 {

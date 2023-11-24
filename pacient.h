@@ -7,5 +7,8 @@ typedef struct paciente Pacient;
 
 Pacient *create_meliant(int t_in)
 
+Pacients *create_meliants()
+
+void meliant_insert(Pacients *meliants, Pacient *pacient)
 
 #endif
