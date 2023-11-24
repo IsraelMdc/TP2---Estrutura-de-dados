@@ -1,8 +1,9 @@
 #ifndef XRAY
 #define XRAY
 
-typedef PACIENTES;
-typedef PACIENTE;
+
+typedef struct pacientes PACIENTES;
+typedef struct paciente PACIENTE;
 
 
 
