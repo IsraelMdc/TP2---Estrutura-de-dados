@@ -28,6 +28,12 @@ Ao finalizar o exame deve ser inserido um ladou do exame no final da fila para l
 
 fila para laudo = 
 
+============
+
+
+
+
+
 
 
 
