@@ -7,7 +7,7 @@
 struct paciente
 {
     char name[50];
-    char cpf[11];
+    char cpf[12];
     int age;
     int id;
     int t_in;
@@ -18,26 +18,8 @@ struct pacientes
 {   
     int n;                     // quantidade de meliantes 
     int n_max;                 // capacidade total de meliantes
-    Pacients *meliants_vector; // vetor de meliantes
-};
-
-struct maquinas
-{
-
-
-};
-
-struct exame
-{
-
-
-
-};
-
-struct laudo
-{
-
-
+    
+    struct paciente **meliants_vector; // vetor de meliantes
 };
 
 int gen_randint(int initial_number, int final_number)
@@ -52,11 +34,11 @@ int gen_age()
 
 void gen_cpf(Pacient *pacient)
 {
-    for (int i = 0; i <= 11 ; i++)
+    for (int i = 0; i < 11 ; i++)
     {
         pacient->cpf[i] = gen_randint('0','9');
     }
-    //pacient->cpf[11] = "\0";
+    pacient->cpf[11] = '\0';
 };
 
 void gen_name(Pacient *pacient)
@@ -66,7 +48,6 @@ void gen_name(Pacient *pacient)
     {
         pacient->name[i] = gen_randint('a','z');
     }
-    //pacient->name[50] = "\0";
 };
 
 Pacient *create_meliant(int t_in)
@@ -81,8 +62,6 @@ Pacient *create_meliant(int t_in)
     pacient->t_out = 0;
     return pacient;
 };
-//meliants == struct de pacients
-//meliants_vector = lista de meliantes
 
 Pacients *create_meliants()
 {
@@ -90,7 +69,7 @@ Pacients *create_meliants()
 
    meliants->n = 0;                                          // Initialize the number of elements to 0
    meliants->n_max = 4;                                      // Allocate initially space for 4 elements
-   meliants->meliants_vector = (Pacients *)malloc(meliants->n_max * sizeof(Pacients)); // Allocate memory for the vector data
+   meliants->meliants_vector = (Pacient **)malloc(meliants->n_max * sizeof(Pacient*)); // Allocate memory for the vector data
 
    return meliants; // Return a pointer to the created dynamic vector
 };
@@ -98,8 +77,8 @@ Pacients *create_meliants()
 // Helper function to reallocate memory for the dynamic vector
 static void reallocate(Pacients *meliants)
 {
-   meliants->n_max *= 2;                                                                                            // Double the capacity
-   meliants->meliants_vector = (Pacients *)realloc(meliants->meliants_vector, meliants->n_max * sizeof(Pacients)); // Reallocate memory for the vector data
+   meliants->n_max *= 2;                                                                                           // Double the capacity
+   meliants->meliants_vector = (struct paciente **)realloc(meliants->meliants_vector, meliants->n_max * sizeof(struct paciente*));// Reallocate memory for the vector data
 };
 
 void meliant_insert(Pacients *meliants, Pacient *pacient)
