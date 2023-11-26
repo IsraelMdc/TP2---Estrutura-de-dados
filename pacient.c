@@ -53,7 +53,7 @@ void gen_name(Pacient *pacient)
 Pacient *create_meliant(int t_in)
 {
     static int id = 1;
-    Pacient *pacient = (Pacient *)malloc(sizeof(Pacient));
+    struct paciente *pacient = (struct paciente *)malloc(sizeof(struct paciente));
     gen_name(pacient);
     pacient->age = gen_age();
     gen_cpf(pacient);
@@ -65,13 +65,12 @@ Pacient *create_meliant(int t_in)
 
 Pacients *create_meliants()
 {
-   Pacients *meliants= (Pacients *)malloc(sizeof(Pacients)); // Allocate memory for the Pacients structure
+    struct pacientes *meliants = (struct pacientes *)malloc(sizeof(struct pacientes));                  // Allocate memory for the Pacients structure
+    meliants->n = 0;                                                                                    // Initialize the number of elements to 0
+    meliants->n_max = 4;                                                                                // Allocate initially space for 4 elements
+    meliants->meliants_vector = (struct paciente **)malloc(meliants->n_max * sizeof(struct paciente *)); // Allocate memory for the vector data
 
-   meliants->n = 0;                                          // Initialize the number of elements to 0
-   meliants->n_max = 4;                                      // Allocate initially space for 4 elements
-   meliants->meliants_vector = (Pacient **)malloc(meliants->n_max * sizeof(Pacient*)); // Allocate memory for the vector data
-
-   return meliants; // Return a pointer to the created dynamic vector
+    return meliants; // Return a pointer to the created dynamic vector
 };
 
 // Helper function to reallocate memory for the dynamic vector
@@ -97,3 +96,21 @@ int list_size(Pacients *meliants)
    return (meliants->n);
 };
 
+void print_pacient(Pacient *pacient)
+{
+    printf("nome do paciente: %s \n" ,pacient->name);
+    printf("cpf do paciente: %s \n" ,pacient->cpf);
+    printf("idade do paciente: %d \n" ,pacient->age);
+    printf("Identificação do paciente: %d \n" ,pacient->id);
+    printf("Tempo de entrada do paciente: %d \n" ,pacient->t_in);
+    printf("Tempo de saida do paciente: %d \n" ,pacient->t_out);
+}
+
+void print_lista_pacientes(struct pacientes *list_pacients)
+{
+    for (int i = 0; i < list_pacients->n; i++)
+    {
+        struct paciente *paciente_atual = list_pacients->meliants_vector[i];
+        print_pacient(paciente_atual);
+    }
+};
