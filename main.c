@@ -31,5 +31,6 @@ int main(void)
         
         time_unit++;
     }
+    //printa lista de pacientes
     print_lista_pacientes(list_meliants);
 }
