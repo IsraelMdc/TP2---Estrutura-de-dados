@@ -111,6 +111,14 @@ void print_lista_pacientes(struct pacientes *list_pacients)
     for (int i = 0; i < list_pacients->n; i++)
     {
         struct paciente *paciente_atual = list_pacients->meliants_vector[i];
+        int *id = paciente_atual->id;
         print_pacient(paciente_atual);
+        printf("id do vagabundo: %d \n", id);
     }
+};
+
+int get_pacient_id(Pacient *pacient)
+{
+    return (pacient->id);
+
 };

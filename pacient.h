@@ -18,4 +18,7 @@ void print_pacient(Pacient *pacient);
 
 void print_lista_pacientes(struct pacientes *list_pacients);
 
+int get_pacient_id(Pacient *pacient);
+
+
 #endif
