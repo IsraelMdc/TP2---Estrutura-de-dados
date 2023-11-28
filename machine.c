@@ -31,6 +31,13 @@ MachineNode *create_machine_node(int id) {
     return new_node;
 }
 
+int get_machine_id(MachineNode *node)
+{
+    return node->id_machine;
+};
+
+
+
 void add_machine(MachineList *list, int id) {
     MachineNode *new_node = create_machine_node(id);
     new_node->next = list->first;
@@ -95,4 +102,13 @@ void free_machine_list(MachineList *list) {
     }
 
     list->first = NULL;
+}
+
+MachineList *initialize_machines (MachineList *list, int number){
+
+    for(int i=0;i<number;i++)
+    {
+        add_machine(list,i);
+    }
+    return list;
 }

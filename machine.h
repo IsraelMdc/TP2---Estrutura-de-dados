@@ -2,7 +2,6 @@
 #define MACHINE_H
 
 typedef struct machine_node MachineNode;
-
 typedef struct machines_list MachineList;
 
 MachineList *create_machine_list();
@@ -21,4 +20,10 @@ void print_machine_status(MachineList *list);
 
 void free_machine_list(MachineList *list);
 
-#endif /* MACHINE_H */
+int get_machine_id(MachineNode *node);
+
+MachineList *initialize_machines (MachineList *list, int number);
+
+
+
+#endif

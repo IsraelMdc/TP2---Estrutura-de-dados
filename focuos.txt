@@ -41,3 +41,7 @@ fila para laudo =
 fila de exame e laudos
 
 fila de exame = 
+
+
+
+tempo de saida do t_in = gen_randint(5,10);

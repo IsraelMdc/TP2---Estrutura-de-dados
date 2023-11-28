@@ -3,15 +3,16 @@ CC = gcc
 
 # Compiler flags
 CFLAGS = -Wall
+LDFLAGS = 
 
 # Source files
-SRCS = main.c pacient.c exam.c machine.c
+SRCS = main.c pacient.c machine.c exam.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)
 
 # Executable name
-TARGET = test_main.c
+TARGET = test_main
 
 # Phony targets
 .PHONY: all compile run clean
@@ -36,4 +37,4 @@ clean:
 
 # Link object files to create the executable
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $(TARGET) $(OBJS)

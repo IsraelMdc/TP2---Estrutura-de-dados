@@ -11,6 +11,7 @@ struct paciente
     int age;
     int id;
     int t_in;
+    int t_exam;
     int t_out;
 };
 
@@ -59,6 +60,7 @@ Pacient *create_meliant(int t_in)
     gen_cpf(pacient);
     pacient->id = id++;
     pacient->t_in = t_in;
+    pacient->t_exam = gen_randint(5,10);
     pacient->t_out = 0;
     return pacient;
 };
@@ -103,17 +105,32 @@ void print_pacient(Pacient *pacient)
     printf("idade do paciente: %d \n" ,pacient->age);
     printf("Identificação do paciente: %d \n" ,pacient->id);
     printf("Tempo de entrada do paciente: %d \n" ,pacient->t_in);
+    printf("Tempo de exame do paciente: %d \n" ,pacient->t_exam);    
     printf("Tempo de saida do paciente: %d \n" ,pacient->t_out);
 }
+
+// void print_pacient_using_id(Pacients *list_pacients, int *id_)
+// {
+//     for(int i = 0; i < list_pacients->n ; i++)
+//     {
+//         struct paciente *paciente_atual = list_pacients->meliants_vector[i];
+//         int *id_paciente_atual = paciente_atual->id;
+//         if(id_paciente_atual == id_)
+//         {
+//             print_pacient(paciente_atual);
+//         }
+//     }
+
+// }
 
 void print_lista_pacientes(struct pacientes *list_pacients)
 {
     for (int i = 0; i < list_pacients->n; i++)
     {
         struct paciente *paciente_atual = list_pacients->meliants_vector[i];
-        int *id = paciente_atual->id;
+        //int *id = paciente_atual->id;
         print_pacient(paciente_atual);
-        printf("id do vagabundo: %d \n", id);
+        //printf("id do vagabundo: %d \n", id);
     }
 };
 
