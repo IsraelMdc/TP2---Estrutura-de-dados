@@ -15,6 +15,9 @@ int main(void)
 
     MachineList *machine_list = initialize_machines(machine_list_create,machine_quantity);
 
+    ExameFila *exam_queue = exam_create();
+
+
     //print_machine_status(machine_list);
 
     //43200 unidades totais
@@ -26,18 +29,18 @@ int main(void)
         if (gen_pacient_chance <= 20)
         {
             Pacient *pacient = create_meliant(time_unit);
+            
+            int id_pacient = get_pacient_id(pacient);
 
             meliant_insert(list_meliants ,pacient);
+
+            exam_enqueue(exam_queue,id_pacient,time_unit);
+            printf("\n--------------fila de exames---------------\n");
+            //exam_print(exam_queue);
 
             int size_meliants = list_size(list_meliants);
             printf("\n-----------------------------\n");
             printf("quantidade de pacientes atuais: %d\n", size_meliants);
-
-
-            /*
-                FILA DE EXAME
-            */
-
             /*
                 VERIFICAR SE TEM MÁQUINA DISPONÍVEL E ALOCAR PARA O PACIENTE ATUAL
             */
@@ -50,8 +53,9 @@ int main(void)
 
                 mark_machine_as_busy(machine_list,idle_machine);          
 
-                print_machine_status(machine_list);   
-                printf("\n-----------------\n");
+                print_machine_status(machine_list);  
+                printf("\n") ;
+
                 print_pacient(pacient);
 
                 

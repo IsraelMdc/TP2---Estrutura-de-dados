@@ -8,7 +8,7 @@ ExameFila *exam_create();
 
 int exam_is_empty(ExameFila *exam_q);
 
-void exam_enqueue(ExameFila *exam_q, int patient_id, int timestamp, const char *condition);
+void exam_enqueue(ExameFila *exam_q, int patient_id, int timestamp);
 
 ExameNode *exam_dequeue(ExameFila *exam_q);
 

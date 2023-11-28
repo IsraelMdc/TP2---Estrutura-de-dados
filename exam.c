@@ -33,7 +33,7 @@ int exam_is_empty(ExameFila *exam_q) {
     return exam_q->front == NULL;
 }
 
-void exam_enqueue(ExameFila *exam_q, int patient_id, int timestamp, const char *condition) {
+void exam_enqueue(ExameFila *exam_q, int patient_id, int timestamp) {
     ExameNode *node = (ExameNode *)malloc(sizeof(ExameNode));
     if (node == NULL) {
         perror("Failed to enqueue exam");
@@ -42,8 +42,6 @@ void exam_enqueue(ExameFila *exam_q, int patient_id, int timestamp, const char *
 
     node->patient_id = patient_id;
     node->timestamp = timestamp;
-    strncpy(node->condition, condition, sizeof(node->condition) - 1);
-    node->condition[sizeof(node->condition) - 1] = '\0';
     node->next = NULL;
 
     if (exam_is_empty(exam_q)) {
@@ -85,7 +83,7 @@ void exam_print(ExameFila *exam_q) {
     }
 
     for (ExameNode *p = exam_q->front; p != NULL; p = p->next) {
-        printf("Patient ID: %d, Timestamp: %d, Condition: %s\n", p->patient_id, p->timestamp, p->condition);
+        printf("Patient ID: %d, Timestamp: %d\n", p->patient_id, p->timestamp);
     }
 
     printf("\n");

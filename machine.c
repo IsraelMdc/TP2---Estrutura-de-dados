@@ -6,6 +6,7 @@ struct machine_node
 {
     int is_occupied;
     int id_machine;
+    int time_occupied;
     struct machine_node *next;
 };
 
@@ -26,6 +27,7 @@ MachineNode *create_machine_node(int id) {
 
     new_node->id_machine = id;
     new_node->is_occupied = 0;
+    new_node->time_occupied = 0;
     new_node->next = NULL;
 
     return new_node;
@@ -111,4 +113,9 @@ MachineList *initialize_machines (MachineList *list, int number){
         add_machine(list,i);
     }
     return list;
+}
+
+void get_pacient_exam_time()
+{
+    
 }

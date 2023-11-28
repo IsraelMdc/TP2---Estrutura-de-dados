@@ -109,20 +109,6 @@ void print_pacient(Pacient *pacient)
     printf("Tempo de saida do paciente: %d \n" ,pacient->t_out);
 }
 
-// void print_pacient_using_id(Pacients *list_pacients, int *id_)
-// {
-//     for(int i = 0; i < list_pacients->n ; i++)
-//     {
-//         struct paciente *paciente_atual = list_pacients->meliants_vector[i];
-//         int *id_paciente_atual = paciente_atual->id;
-//         if(id_paciente_atual == id_)
-//         {
-//             print_pacient(paciente_atual);
-//         }
-//     }
-
-// }
-
 void print_lista_pacientes(struct pacientes *list_pacients)
 {
     for (int i = 0; i < list_pacients->n; i++)
