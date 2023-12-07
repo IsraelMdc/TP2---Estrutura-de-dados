@@ -56,7 +56,7 @@ int find_idle_machine(MachineList *list) {
         current = current->next;
     }
 
-    return 1;
+    return -1;
 }
 
 void mark_machine_as_busy(MachineList *list, int id) {
@@ -115,7 +115,3 @@ MachineList *initialize_machines (MachineList *list, int number){
     return list;
 }
 
-void get_pacient_exam_time()
-{
-    
-}

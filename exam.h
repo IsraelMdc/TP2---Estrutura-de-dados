@@ -16,4 +16,8 @@ void exam_free(ExameFila *exam_q);
 
 void exam_print(ExameFila *exam_q);
 
+ExameNode *exam_make(ExameNode *next_pacient, int machine_id, MachineList *machine_list, int time_unit);
+
+int get_pacient_node_id(ExameNode *laud_node);
+
 #endif

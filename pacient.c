@@ -11,8 +11,10 @@ struct paciente
     int age;
     int id;
     int t_in;
-    int t_exam;
-    int t_out;
+     // int t_exam;
+    //int t_out;
+    char condition [30];
+    int gravidade;
 };
 
 struct pacientes
@@ -45,7 +47,7 @@ void gen_cpf(Pacient *pacient)
 void gen_name(Pacient *pacient)
 {
     pacient->name[0] = gen_randint('A','Z');
-    for (int i = 1; i <= 50 ; i++)
+    for (int i = 1; i <= 49 ; i++)
     {
         pacient->name[i] = gen_randint('a','z');
     }
@@ -60,8 +62,10 @@ Pacient *create_meliant(int t_in)
     gen_cpf(pacient);
     pacient->id = id++;
     pacient->t_in = t_in;
-    pacient->t_exam = gen_randint(5,10);
+    /*pacient->t_exam = gen_randint(5,10);
     pacient->t_out = 0;
+    strcpy(pacient->condition,"desconhecido");
+    pacient->gravidade = 0;*/
     return pacient;
 };
 
@@ -105,8 +109,8 @@ void print_pacient(Pacient *pacient)
     printf("idade do paciente: %d \n" ,pacient->age);
     printf("Identificação do paciente: %d \n" ,pacient->id);
     printf("Tempo de entrada do paciente: %d \n" ,pacient->t_in);
-    printf("Tempo de exame do paciente: %d \n" ,pacient->t_exam);    
-    printf("Tempo de saida do paciente: %d \n" ,pacient->t_out);
+    //printf("Tempo de exame do paciente: %d \n" ,pacient->t_exam);    
+    //printf("Tempo de saida do paciente: %d \n" ,pacient->t_out);
 }
 
 void print_lista_pacientes(struct pacientes *list_pacients)
@@ -125,3 +129,5 @@ int get_pacient_id(Pacient *pacient)
     return (pacient->id);
 
 };
+
+
