@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra
 LDFLAGS = 
 
 # Source files
-SRCS = main.c pacient.c machine.c exam.c
+SRCS = main.c pacient.c machine.c exam.c radiologist.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)
