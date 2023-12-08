@@ -7,13 +7,13 @@ struct Node_Radiologist {
     int data;             // Identificador do radiologista
     int is_available;     // Indica se o radiologista está disponível (1) ou não (0)
     struct Node *next;    // Ponteiro para o próximo nó na fila
-}
+};
 
 // Estrutura para representar uma fila de radiologistas
 struct Queue_Radiologist {
     Node *front;   // Ponteiro para o início da fila
     Node *rear;    // Ponteiro para o final da fila
-}
+};
 
 // Função para inicializar a fila
 void initializeQueue(Queue *queue) {

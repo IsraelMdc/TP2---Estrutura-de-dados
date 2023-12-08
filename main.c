@@ -71,38 +71,38 @@ int main(void)
             
                 ExameNode *next_laud = exam_dequeue(exam_queue);
 
-                if(next_laud!=NULL)
-                {
-                    int id_radiologist = find_idle_radiologist(radiologist_list);
-                    if(id_radiologist!=-1)
-                    {                
-                        laud_medium_time += laud_after_node->time_laud;
+                // if(next_laud!=NULL)
+                // {
+                //     int id_radiologist = find_idle_radiologist(radiologist_list);
+                //     if(id_radiologist!=-1)
+                //     {                
+                //         laud_medium_time += laud_after_node->time_laud;
                     
-                        if(laud_after->gravidade == 1){
-                            helth_time +=laud_after_node->time_laud;
-                            helth_cont++;
-                        }
-                        else if(laud_after->gravidade == 2){
-                            bronkaite_time +=laud_after_node->time_laud;
-                            bronkaite_cont++;
-                        }
-                        else if(laud_after->gravidade== 3){
-                            peneu_time +=laud_after_node->time_laud;
-                            peneu_cont++;
-                        }
-                        else if(laud_after->gravidade == 4){
-                            femur_broken_time +=laud_after_node->time_laud;
-                            femur_broken_cont++;
-                        }
-                        else if(laud_after->gravidade == 4){
-                            aprendeu_time +=laud_after_node->time_laud;
-                            aprendeu_cont++;
-                        }
+                //         if(laud_after->gravidade == 1){
+                //             helth_time +=laud_after_node->time_laud;
+                //             helth_cont++;
+                //         }
+                //         else if(laud_after->gravidade == 2){
+                //             bronkaite_time +=laud_after_node->time_laud;
+                //             bronkaite_cont++;
+                //         }
+                //         else if(laud_after->gravidade== 3){
+                //             peneu_time +=laud_after_node->time_laud;
+                //             peneu_cont++;
+                //         }
+                //         else if(laud_after->gravidade == 4){
+                //             femur_broken_time +=laud_after_node->time_laud;
+                //             femur_broken_cont++;
+                //         }
+                //         else if(laud_after->gravidade == 4){
+                //             aprendeu_time +=laud_after_node->time_laud;
+                //             aprendeu_cont++;
+                //         }
                     
             
             
-                    }
-                }
+                //     }
+                // }
         time_unit++;
         count_show++;
             }

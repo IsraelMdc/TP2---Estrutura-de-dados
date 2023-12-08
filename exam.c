@@ -167,7 +167,7 @@ void exam_condition(ExameNode *laud_node)
     
 ExameNode *exam_make(ExameNode *next_pacient, int machine_id, MachineList *machine_list, int time_unit) {
     // Alocação de memória para o novo nó de exame
-    struct ExamNode *laud_node = (struct ExamNode *)malloc(sizeof(struct ExamNode));
+    struct ExameNode *laud_node = (struct ExameNode *)malloc(sizeof(struct ExameNode));
     
     // Verifica se a alocação de memória foi bem-sucedida
     if (laud_node == NULL) {
@@ -175,19 +175,19 @@ ExameNode *exam_make(ExameNode *next_pacient, int machine_id, MachineList *machi
         exit(EXIT_FAILURE);
     }
 
-    // Verifica se a máquina está disponível antes de marcá-la como ocupada
-    if (!is_machine_available(machine_list, machine_id)) {
-        fprintf(stderr, "Error: Machine %d is not available\n", machine_id);
-        // Trate o erro adequadamente (por exemplo, escolher outra máquina ou esperar)
-        // ...
-    }
+    // // Verifica se a máquina está disponível antes de marcá-la como ocupada
+    // if (!is_machine_available(machine_list, machine_id)) {
+    //     fprintf(stderr, "Error: Machine %d is not available\n", machine_id);
+    //     // Trate o erro adequadamente (por exemplo, escolher outra máquina ou esperar)
+    //     // ...
+    // }
     
     // Marca a máquina como ocupada
     mark_machine_as_busy(machine_list, machine_id);
 
     // Preenchimento do nó com as informações do paciente e do exame
     laud_node->patient_id = next_pacient->patient_id;
-    laud_node->timestamp = time_unit;
+    laud_node->time_atend= time_unit;
     laud_node->gravidade = next_pacient->gravidade;
 
     // Usa strncpy para evitar buffer overflow na cópia da condição do paciente
